@@ -1,29 +1,11 @@
+import HeroSection from './components/HeroSection';
+
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div>
       {/* Hero Section */}
-      <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            Bienvenue sur{" "}
-            <span className="bg-gradient-to-r from-green-600 to-yellow-500 bg-clip-text text-transparent">
-              BiblioCampus
-            </span>
-          </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Votre plateforme universitaire pour rechercher, réserver et emprunter des livres en toute simplicité
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-3 rounded-lg font-semibold hover:from-green-700 hover:to-green-800 transition-all duration-200 shadow-lg">
-              Explorer le Catalogue
-            </button>
-            <button className="border-2 border-green-600 text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-all duration-200">
-              Se Connecter
-            </button>
-          </div>
-        </div>
-      </section>
-
+      <HeroSection />
+ 
       {/* Features Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
