@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,31 +17,38 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 shadow-lg border-b border-green-400/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav 
+      className="shadow-lg border-b border-green-400/20 relative"
+      style={{
+        backgroundImage: "url('/rectangle-48.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Overlay pour améliorer la lisibilité */}
+      <div className="absolute inset-0 bg-black/30"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex justify-between h-16">
           {/* Logo et nom de l'application */}
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center">
-              <div className="bg-gradient-to-br from-green-400 to-yellow-400 p-2 rounded-lg shadow-lg">
-                <svg
-                  className="h-8 w-8 text-gray-900"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M3 4a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm1 0v12h12V4H4z"
-                    clipRule="evenodd"
-                  />
-                  <path d="M6 6h8v2H6V6zM6 10h8v2H6v-2zM6 14h5v2H6v-2z" />
-                </svg>
+              <div className="relative w-12 h-12 bg-white/10 backdrop-blur-sm rounded-lg p-2">
+                <Image
+                  src="/logo.png"
+                  alt="BiblioGestion Logo"
+                  width={32}
+                  height={32}
+                  className="w-full h-full object-contain"
+                  priority
+                />
               </div>
               <div className="ml-3">
-                <h1 className="text-xl font-bold bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
+                <h1 className="text-xl font-bold text-white drop-shadow-lg">
                   BiblioCampus
                 </h1>
-                <p className="text-xs text-gray-400">Gestion Universitaire</p>
+                <p className="text-xs text-gray-200 drop-shadow">Gestion Universitaire</p>
               </div>
             </div>
           </div>
@@ -49,25 +57,25 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
-              className="text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-gray-800/50"
+              className="text-white hover:text-green-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-white/10 drop-shadow"
             >
               Accueil
             </Link>
             <Link
               href="/books"
-              className="text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-gray-800/50"
+              className="text-white hover:text-green-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-white/10 drop-shadow"
             >
               Catalogue
             </Link>
             <Link
               href="/my-books"
-              className="text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-gray-800/50"
+              className="text-white hover:text-green-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-white/10 drop-shadow"
             >
               Mes Emprunts
             </Link>
             <Link
               href="/reservations"
-              className="text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-gray-800/50"
+              className="text-white hover:text-green-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-white/10 drop-shadow"
             >
               Réservations
             </Link>
@@ -78,7 +86,7 @@ export default function Navbar() {
             <div className="relative w-full">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <svg
-                  className="h-5 w-5 text-gray-400"
+                  className="h-5 w-5 text-gray-200"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -93,7 +101,7 @@ export default function Navbar() {
               </div>
               <input
                 type="text"
-                className="block w-full pl-10 pr-3 py-2 border border-gray-600 rounded-lg bg-gray-800 text-gray-300 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent transition-all duration-200"
+                className="block w-full pl-10 pr-3 py-2 border border-white/30 rounded-lg bg-white/10 backdrop-blur-sm text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent transition-all duration-200"
                 placeholder="Rechercher un livre, auteur..."
               />
             </div>
@@ -102,7 +110,7 @@ export default function Navbar() {
           {/* Actions utilisateur (Desktop) */}
           <div className="hidden md:flex items-center space-x-4">
             {/* Notifications */}
-            <button className="relative p-2 text-gray-400 hover:text-green-400 transition-colors duration-200">
+            <button className="relative p-2 text-gray-200 hover:text-green-300 transition-colors duration-200 drop-shadow">
               <svg
                 className="h-6 w-6"
                 fill="none"
@@ -123,7 +131,7 @@ export default function Navbar() {
             <div className="relative">
               <button
                 onClick={toggleProfile}
-                className="flex items-center space-x-2 text-gray-300 hover:text-green-400 transition-colors duration-200"
+                className="flex items-center space-x-2 text-white hover:text-green-300 transition-colors duration-200 drop-shadow"
               >
                 <div className="h-8 w-8 bg-gradient-to-br from-green-400 to-yellow-400 rounded-full flex items-center justify-center">
                   <span className="text-sm font-medium text-gray-900">JD</span>
@@ -180,7 +188,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="text-gray-400 hover:text-green-400 focus:outline-none transition-colors duration-200"
+              className="text-white hover:text-green-300 focus:outline-none transition-colors duration-200 drop-shadow"
             >
               <svg
                 className="h-6 w-6"
@@ -211,14 +219,14 @@ export default function Navbar() {
 
       {/* Menu mobile */}
       {isOpen && (
-        <div className="md:hidden bg-gray-800 border-t border-gray-700">
+        <div className="md:hidden bg-black/60 backdrop-blur-sm border-t border-white/20">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {/* Barre de recherche mobile */}
             <div className="px-3 py-2">
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <svg
-                    className="h-5 w-5 text-gray-400"
+                    className="h-5 w-5 text-gray-200"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -233,7 +241,7 @@ export default function Navbar() {
                 </div>
                 <input
                   type="text"
-                  className="block w-full pl-10 pr-3 py-2 border border-gray-600 rounded-lg bg-gray-700 text-gray-300 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent"
+                  className="block w-full pl-10 pr-3 py-2 border border-white/30 rounded-lg bg-white/10 backdrop-blur-sm text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent"
                   placeholder="Rechercher..."
                 />
               </div>
@@ -242,37 +250,37 @@ export default function Navbar() {
             {/* Navigation mobile */}
             <Link
               href="/"
-              className="block px-3 py-2 text-gray-300 hover:text-green-400 hover:bg-gray-700 rounded-md transition-colors duration-200"
+              className="block px-3 py-2 text-white hover:text-green-300 hover:bg-white/10 rounded-md transition-colors duration-200"
             >
               Accueil
             </Link>
             <Link
               href="/books"
-              className="block px-3 py-2 text-gray-300 hover:text-green-400 hover:bg-gray-700 rounded-md transition-colors duration-200"
+              className="block px-3 py-2 text-white hover:text-green-300 hover:bg-white/10 rounded-md transition-colors duration-200"
             >
               Catalogue
             </Link>
             <Link
               href="/my-books"
-              className="block px-3 py-2 text-gray-300 hover:text-green-400 hover:bg-gray-700 rounded-md transition-colors duration-200"
+              className="block px-3 py-2 text-white hover:text-green-300 hover:bg-white/10 rounded-md transition-colors duration-200"
             >
               Mes Emprunts
             </Link>
             <Link
               href="/reservations"
-              className="block px-3 py-2 text-gray-300 hover:text-green-400 hover:bg-gray-700 rounded-md transition-colors duration-200"
+              className="block px-3 py-2 text-white hover:text-green-300 hover:bg-white/10 rounded-md transition-colors duration-200"
             >
               Réservations
             </Link>
             <Link
               href="/profile"
-              className="block px-3 py-2 text-gray-300 hover:text-green-400 hover:bg-gray-700 rounded-md transition-colors duration-200"
+              className="block px-3 py-2 text-white hover:text-green-300 hover:bg-white/10 rounded-md transition-colors duration-200"
             >
               Mon Profil
             </Link>
             <Link
               href="/dashboard"
-              className="block px-3 py-2 text-gray-300 hover:text-green-400 hover:bg-gray-700 rounded-md transition-colors duration-200"
+              className="block px-3 py-2 text-white hover:text-green-300 hover:bg-white/10 rounded-md transition-colors duration-200"
             >
               Tableau de bord
             </Link>
