@@ -68,16 +68,16 @@ export default function Navbar() {
               Catalogue
             </Link>
             <Link
-              href="/my-books"
+              href="/my-borrowings"
               className="text-white hover:text-green-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-white/10 drop-shadow"
             >
               Mes Emprunts
             </Link>
             <Link
-              href="/reservations"
+              href="/dashboard"
               className="text-white hover:text-green-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-white/10 drop-shadow"
             >
-              Réservations
+              Dashboard
             </Link>
           </div>
 
@@ -85,7 +85,10 @@ export default function Navbar() {
           {/* Actions utilisateur (Desktop) */}
           <div className="hidden md:flex items-center space-x-4">
             {/* Notifications */}
-            <button className="relative p-2 text-gray-200 hover:text-green-300 transition-colors duration-200 drop-shadow">
+            <Link
+              href="/notifications"
+              className="relative p-2 text-gray-200 hover:text-green-300 transition-colors duration-200 drop-shadow"
+            >
               <svg
                 className="h-6 w-6"
                 fill="none"
@@ -100,7 +103,7 @@ export default function Navbar() {
                 />
               </svg>
               <span className="absolute -top-1 -right-1 h-3 w-3 bg-red-500 rounded-full"></span>
-            </button>
+            </Link>
 
             {/* Profile dropdown */}
             <div className="relative">
@@ -136,24 +139,63 @@ export default function Navbar() {
                     href="/profile"
                     className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-green-400 transition-colors duration-200"
                   >
-                    Mon Profil
+                    👤 Mon Profil
                   </Link>
                   <Link
                     href="/dashboard"
                     className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-green-400 transition-colors duration-200"
                   >
-                    Tableau de bord
+                    📊 Tableau de bord
+                  </Link>
+                  <Link
+                    href="/my-borrowings"
+                    className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-green-400 transition-colors duration-200"
+                  >
+                    📚 Mes Emprunts
+                  </Link>
+                  <Link
+                    href="/admin"
+                    className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-green-400 transition-colors duration-200"
+                  >
+                    🔧 Administration
+                  </Link>
+                  <Link
+                    href="/admin/books"
+                    className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-green-400 transition-colors duration-200 pl-8"
+                  >
+                    📚 Gestion Livres
+                  </Link>
+                  <Link
+                    href="/admin/users"
+                    className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-green-400 transition-colors duration-200 pl-8"
+                  >
+                    👥 Gestion Utilisateurs
+                  </Link>
+                  <Link
+                    href="/admin/borrowings"
+                    className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-green-400 transition-colors duration-200 pl-8"
+                  >
+                    📋 Gestion Emprunts
                   </Link>
                   <Link
                     href="/settings"
                     className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-green-400 transition-colors duration-200"
                   >
-                    Paramètres
+                    ⚙️ Paramètres
+                  </Link>
+                  <Link
+                    href="/help"
+                    className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-green-400 transition-colors duration-200"
+                  >
+                    ❓ Aide
                   </Link>
                   <hr className="my-1 border-gray-700" />
-                  <button className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-red-400 transition-colors duration-200">
-                    Déconnexion
-                  </button>
+                  <Link
+                    href="/login"
+                    className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-red-400 transition-colors duration-200"
+                  >
+                    🚪 Déconnexion
+                  </Link>
                 </div>
               )}
             </div>
